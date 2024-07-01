@@ -1,23 +1,8 @@
-# Bus Schedule App
-
-This folder contains the source code for the Bus Schedule app codelab.
-
-# Introduction
-The Bus Schedule app displays a list of bus stops and arrival times. Tapping a bus stop on the first
-screen will display a list of all arrival times for that particular stop.
-
-The bus stops are stored in a Room database. Schedule items are represented by the `Schedule` class 
-and queries on the data table are made by the `ScheduleDao` class. The app includes a view model to
-access the `ScheduleDao` and format data to be display in a list.
-
-# Pre-requisites
-* Experience with Kotlin syntax.
-* Experience with Jetpack Compose.
-* How to create and run a project in Android Studio.
-* Basic knowledge of SQL databases and performing basic queries.
-
-# Getting Started
-1. Install Android Studio, if you don't already have it.
-2. Download the sample.
-3. Import the sample into Android Studio.
-4. Build and run the sample.
+# Bus Schedule
+A bus schedule app made with the starter code from the Android Developers' course
+<br/>
+<a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-bus-schedule-app?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-6-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-bus-schedule-app#7)">Mentioned codelab</a>
+<p align="center">
+   <img src="https://github.com/JuncProgramming/Bus-Schedule/assets/122737448/59e14890-21b4-4fd9-bfb8-10af0587e98f" width="400">
+   <img src="https://github.com/JuncProgramming/Bus-Schedule/assets/122737448/7300c088-88a9-4885-8beb-1999b51934a3" width="400">
+</p>
