@@ -28,9 +28,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Divider
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -59,7 +59,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.busschedule.R
-import com.example.busschedule.data.BusSchedule
+import com.example.busschedule.data.ScheduleItem
 import com.example.busschedule.ui.theme.BusScheduleTheme
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -129,7 +129,7 @@ fun BusScheduleApp(
 
 @Composable
 fun FullScheduleScreen(
-    busSchedules: List<BusSchedule>,
+    busSchedules: List<ScheduleItem>,
     onScheduleClick: (String) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
@@ -145,7 +145,7 @@ fun FullScheduleScreen(
 @Composable
 fun RouteScheduleScreen(
     stopName: String,
-    busSchedules: List<BusSchedule>,
+    busSchedules: List<ScheduleItem>,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     onBack: () -> Unit = {}
@@ -161,7 +161,7 @@ fun RouteScheduleScreen(
 
 @Composable
 fun BusScheduleScreen(
-    busSchedules: List<BusSchedule>,
+    busSchedules: List<ScheduleItem>,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     stopName: String? = null,
@@ -194,7 +194,7 @@ fun BusScheduleScreen(
             Text(stopNameText)
             Text(stringResource(R.string.arrival_time))
         }
-        Divider()
+        HorizontalDivider()
         BusScheduleDetails(
             contentPadding = PaddingValues(
                 bottom = contentPadding.calculateBottomPadding()
@@ -213,7 +213,7 @@ fun BusScheduleScreen(
  */
 @Composable
 fun BusScheduleDetails(
-    busSchedules: List<BusSchedule>,
+    busSchedules: List<ScheduleItem>,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     onScheduleClick: ((String) -> Unit)? = null
@@ -256,7 +256,7 @@ fun BusScheduleDetails(
                 }
                 Text(
                     text = SimpleDateFormat("h:mm a", Locale.getDefault())
-                        .format(Date(schedule.arrivalTimeInMillis.toLong() * 1000)),
+                        .format(Date(schedule.arrivalTime.toLong() * 1000)),
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontSize = dimensionResource(R.dimen.font_large).value.sp,
                         fontWeight = FontWeight(600)
@@ -283,7 +283,7 @@ fun BusScheduleTopAppBar(
             navigationIcon = {
                 IconButton(onClick = onBackClick) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = stringResource(
                             R.string.back
                         )
@@ -306,7 +306,7 @@ fun FullScheduleScreenPreview() {
     BusScheduleTheme {
         FullScheduleScreen(
             busSchedules = List(3) { index ->
-                BusSchedule(
+                ScheduleItem(
                     index,
                     "Main Street",
                     111111
@@ -324,7 +324,7 @@ fun RouteScheduleScreenPreview() {
         RouteScheduleScreen(
             stopName = "Main Street",
             busSchedules = List(3) { index ->
-                BusSchedule(
+                ScheduleItem(
                     index,
                     "Main Street",
                     111111
